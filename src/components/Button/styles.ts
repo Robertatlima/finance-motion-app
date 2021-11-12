@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 interface ButtonStyledProps {
-  disabled: boolean;
+  disable: boolean;
   secondary: boolean;
   fullWidth: boolean;
 }
@@ -31,7 +31,7 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
       }
     `}
   ${(props) =>
-    props.disabled &&
+    props.disable &&
     css`
       background-color: var(--color-grey0);
       color: var(--color-grey50);

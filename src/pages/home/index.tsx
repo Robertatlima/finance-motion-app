@@ -16,7 +16,7 @@ const Home = () => {
         Criar minha conta
       </Button>
 
-      <Button fullWidth disabled onClick={() => history.push("/login")}>
+      <Button disable fullWidth onClick={() => history.push("/login")}>
         Já sou cadastrado
       </Button>
     </Container>
