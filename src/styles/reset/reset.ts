@@ -6,8 +6,8 @@ const GlobalStyleReset = createGlobalStyle`
     box-sizing: border-box;
     outline: 0;
     overflow: none;
-    margin: 0 auto;
     list-style-type: none;
+    max-width: 1400px;
 }
 `;
 export default GlobalStyleReset;
