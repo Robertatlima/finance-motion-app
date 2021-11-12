@@ -3,7 +3,7 @@ import { ButtonStyled } from "./styles";
 
 interface ButtonProps {
   children: ReactNode;
-  disabled?: boolean;
+  disable?: boolean;
   secondary?: boolean;
   fullWidth?: boolean;
   onClick?: () => void;
@@ -12,7 +12,7 @@ interface ButtonProps {
 
 const Button = ({
   secondary = false,
-  disabled = false,
+  disable = false,
   fullWidth = false,
   children,
   onClick,
@@ -22,7 +22,7 @@ const Button = ({
     <ButtonStyled
       secondary={secondary}
       type={type}
-      disabled={disabled}
+      disable={disable}
       fullWidth={fullWidth}
       onClick={onClick}
     >
