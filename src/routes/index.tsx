@@ -1,19 +1,22 @@
 import { Route, Switch } from "react-router-dom";
-
+import Dashboard from "../pages/dashboard";
+import Home from "../pages/home";
+import Login from "../pages/login";
+import Register from "../pages/register";
 const Router = () => {
   return (
     <Switch>
       <Route exact path="/">
-        <p>Home</p>
+        <Home />
       </Route>
       <Route path="/login">
-        <p>Login</p>
+        <Login />
       </Route>
-      <Route path="/signup">
-        <p>Registro</p>
+      <Route path="/register">
+        <Register />
       </Route>
       <Route path="/dashboard">
-        <p>Dashboard</p>
+        <Dashboard />
       </Route>
     </Switch>
   );

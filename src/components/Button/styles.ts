@@ -13,6 +13,7 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
   height: 50px;
   font-size: 16px;
   font-weight: bold;
+  margin-bottom: 20px;
   border: none;
   border-radius: 8px;
   background-color: var(--color-primary);

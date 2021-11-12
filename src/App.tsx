@@ -1,10 +1,10 @@
 import React from "react";
-import "./App.css";
-import Register from "./pages/register";
+import Router from "./routes";
+
 function App() {
   return (
     <div className="App">
-      <Register />
+      <Router />
     </div>
   );
 }
