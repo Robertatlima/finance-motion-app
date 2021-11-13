@@ -6,7 +6,10 @@ const SvgLogin = () => {
     <Container>
       {" "}
       <img src={svgLogin} alt="img login" />{" "}
-      <p> Fique livre para pensar, nós planejamos para você! </p>{" "}
+      <p>
+        {" "}
+        <span>Fique livre para pensar</span>, nós planejamos para você!{" "}
+      </p>{" "}
     </Container>
   );
 };

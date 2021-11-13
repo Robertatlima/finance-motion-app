@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import CabecalhoDashboard from "../../components/CabecalhoDashboard";
 import ExtratoDetalhado from "../../components/ExtratoDetalhado";
@@ -22,4 +23,5 @@ const Dashboard = () => {
     </>
   );
 };
+
 export default Dashboard;

@@ -3,10 +3,15 @@ import * as yup from "yup";
 import { useHistory } from "react-router";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { TextField } from "@material-ui/core";
-import axios from "axios";
 import SvgLogin from "../../components/svgLogin";
 import Logo from "../../components/logo";
 import { Container } from "./styles";
+import { useAuth } from "../../Provider/Auth";
+import Button from "../../components/Button";
+interface UserData {
+  email: string;
+  password: string;
+}
 const Login = () => {
   const history = useHistory();
 
@@ -21,8 +26,11 @@ const Login = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const handleForm = () => {
-    history.push("/dashboard");
+  const { logar } = useAuth();
+
+  const handleForm = (data: UserData) => {
+    console.log(data);
+    logar(data, history);
   };
 
   return (
@@ -30,6 +38,7 @@ const Login = () => {
       <form onSubmit={handleSubmit(handleForm)}>
         <Logo />
         <SvgLogin />
+
         <TextField
           variant="filled"
           InputProps={{ disableUnderline: true }}
@@ -37,6 +46,7 @@ const Login = () => {
           label="Email"
           type="email"
           margin="normal"
+          fullWidth
           size="small"
           color="secondary"
           {...register("email")}
@@ -49,6 +59,7 @@ const Login = () => {
           id="password"
           type="password"
           label="Senha"
+          fullWidth
           margin="normal"
           size="small"
           color="secondary"
@@ -56,9 +67,13 @@ const Login = () => {
           error={!!errors.password}
           helperText={errors.password?.message}
         />
+        <Button fullWidth type="submit">
+          Entrar
+        </Button>
+        <Button disable fullWidth onClick={() => history.push("/register")}>
+          Criar minha conta
+        </Button>
       </form>
-      <button>Entrar</button>
-      <button>Criar minha conta</button>
     </Container>
   );
 };

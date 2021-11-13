@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 interface ButtonStyledProps {
-  disabled: boolean;
+  disable: boolean;
   secondary: boolean;
   fullWidth: boolean;
 }
@@ -13,6 +13,7 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
   height: 50px;
   font-size: 16px;
   font-weight: bold;
+  margin-bottom: 20px;
   border: none;
   border-radius: 8px;
   background-color: var(--color-primary);
@@ -30,7 +31,7 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
       }
     `}
   ${(props) =>
-    props.disabled &&
+    props.disable &&
     css`
       background-color: var(--color-grey0);
       color: var(--color-grey50);

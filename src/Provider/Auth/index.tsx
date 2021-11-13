@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, ReactNode } from "react";
 import { History } from "history";
 import axios from "axios";
-
+import api from "../../services/api";
 interface AuthProps {
   children: ReactNode;
 }
@@ -10,11 +10,16 @@ interface UserData {
   email: string;
   password: string;
 }
-
+interface UserDataRegister {
+  name: string;
+  email: string;
+  password: string;
+  passwordConfirmed: string;
+}
 interface AuthProviderData {
   authToken: string;
   logar: (userData: UserData, history: History) => void;
-  registrar: (userData: UserData, history: History) => void;
+  registrar: (userData: UserDataRegister, history: History) => void;
   deslogar: (history: History) => void;
 }
 
@@ -26,19 +31,20 @@ export const AuthProvider = ({ children }: AuthProps) => {
   );
 
   const logar = (userData: UserData, history: History) => {
-    axios
-      .post("https://finance-motion.herokuapp.com/login", userData)
+    api
+      .post("login", userData)
       .then((response) => {
         localStorage.setItem("token", response.data.accessToken);
+        console.log("entrou");
         setAuthToken(response.data.token);
         history.push("/dashboard");
       })
       .catch((err) => console.log(err));
   };
 
-  const registrar = (userData: UserData, history: History) => {
-    axios
-      .post("https://finance-motion.herokuapp.com/register", userData)
+  const registrar = (userData: UserDataRegister, history: History) => {
+    api
+      .post("register", userData)
       .then(() => {
         history.push("/login");
       })
