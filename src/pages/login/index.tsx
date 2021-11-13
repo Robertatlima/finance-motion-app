@@ -38,6 +38,7 @@ const Login = () => {
       <form onSubmit={handleSubmit(handleForm)}>
         <Logo />
         <SvgLogin />
+
         <TextField
           variant="filled"
           InputProps={{ disableUnderline: true }}
@@ -45,6 +46,7 @@ const Login = () => {
           label="Email"
           type="email"
           margin="normal"
+          fullWidth
           size="small"
           color="secondary"
           {...register("email")}
@@ -57,6 +59,7 @@ const Login = () => {
           id="password"
           type="password"
           label="Senha"
+          fullWidth
           margin="normal"
           size="small"
           color="secondary"
@@ -67,7 +70,7 @@ const Login = () => {
         <Button fullWidth type="submit">
           Entrar
         </Button>
-        <Button fullWidth onClick={() => history.push("/register")}>
+        <Button disable fullWidth onClick={() => history.push("/register")}>
           Criar minha conta
         </Button>
       </form>

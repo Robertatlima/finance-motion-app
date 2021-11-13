@@ -4,7 +4,7 @@ import { useHistory } from "react-router";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { TextField } from "@material-ui/core";
 
-import SvgLogin from "../../components/svgLogin";
+import SvgRegister from "../../components/svgRegister";
 import Logo from "../../components/logo";
 import { Container } from "./styles";
 import { useAuth } from "../../Provider/Auth";
@@ -39,8 +39,10 @@ const Register = () => {
   return (
     <Container>
       <form onSubmit={handleSubmit(handleForm)}>
-        <Logo />
-        <SvgLogin />
+        <div className="textoRegister">
+          <Logo />
+          <SvgRegister />
+        </div>
         <TextField
           variant="filled"
           label="Nome"
@@ -99,7 +101,7 @@ const Register = () => {
           {" "}
           Cadastrar
         </Button>
-        <Button fullWidth onClick={() => history.push("/login")}>
+        <Button disable fullWidth onClick={() => history.push("/login")}>
           {" "}
           Já sou cadastrado
         </Button>
