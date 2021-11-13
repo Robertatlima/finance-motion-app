@@ -4,18 +4,18 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import GlobalStyle from "./styles/global";
 import GlobalStyleReset from "./styles/reset/reset";
-  import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import Providers from "./Provider";
-  
+
 ReactDOM.render(
   <React.StrictMode>
-        <Providers>
-        <BrowserRouter>
-     
-    <GlobalStyleReset />
-    <GlobalStyle />
-    <App />
-    </BrowserRouter>
+    <Providers>
+      <BrowserRouter>
+        <GlobalStyleReset />
+        <GlobalStyle />
+
+        <App />
+      </BrowserRouter>
     </Providers>
   </React.StrictMode>,
   document.getElementById("root")
