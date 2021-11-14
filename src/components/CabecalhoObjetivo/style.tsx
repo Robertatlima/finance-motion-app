@@ -13,15 +13,13 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  div{
-      display: flex;
-      justify-content: space-between;
-      flex: 1;
-      align-items: center;
-    
+  div {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    align-items: center;
   }
-  div:nth-child(2){
-      font-size: 40px;
+  div:nth-child(2) {
+    font-size: 40px;
   }
-
-`
+`;

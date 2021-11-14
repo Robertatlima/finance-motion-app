@@ -6,14 +6,15 @@ export const Container = styled.div`
   align-items: center;
   font-size: 12px;
   max-width: 260px;
-  margin-bottom: 32px;
+  margin-bottom: 29px;
+
   img {
     width: 85px;
     height: 70px;
   }
   p {
     margin-left: 8px;
-
+    margin-top: 18px;
     color: var(--color-grey50);
     span {
       color: var(--color-grey100);

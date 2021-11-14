@@ -10,6 +10,7 @@ export const Container = styled.div`
   margin-bottom: 32px;
   p {
     text-align: end;
+    margin-top: 35px;
     justify-content: start;
     margin-left: 8px;
     color: var(--color-grey50);

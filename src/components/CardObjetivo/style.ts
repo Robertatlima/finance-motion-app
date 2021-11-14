@@ -31,11 +31,10 @@ export const Container = styled.div`
     flex: 1;
     margin: 10px;
   }
-  .col__left div{
+  .col__left div {
     display: flex;
     align-items: flex-start;
     font-weight: 600;
-   
   }
   .col__right div {
     display: flex;
@@ -52,19 +51,18 @@ export const Container = styled.div`
     flex-direction: row;
     justify-content: space-between;
   }
-  .progress{
-      display: flex;
-      justify-content: flex-start;
-      padding: 20px;
-     
+  .progress {
+    display: flex;
+    justify-content: flex-start;
+    padding: 20px;
   }
-  
-  .marcador__mapa{
-      color: green;
-      transform: rotate(180deg)
+
+  .marcador__mapa {
+    color: green;
+    transform: rotate(180deg);
   }
-  .aviso{
-      font-size: 8px;
-     color: var(--color-grey50)
+  .aviso {
+    font-size: 8px;
+    color: var(--color-grey50);
   }
 `;

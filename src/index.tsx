@@ -14,7 +14,7 @@ ReactDOM.render(
       <BrowserRouter>
         <GlobalStyleReset />
         <GlobalStyle />
-        <ToastContainer />
+        <ToastContainer theme="colored" />
         <App />
       </BrowserRouter>
     </Providers>
