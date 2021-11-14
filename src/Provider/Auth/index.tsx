@@ -1,7 +1,8 @@
 import { createContext, useContext, useState, ReactNode } from "react";
 import { History } from "history";
-import axios from "axios";
+import { toast } from "react-toastify";
 import api from "../../services/api";
+
 interface AuthProps {
   children: ReactNode;
 }
@@ -38,8 +39,9 @@ export const AuthProvider = ({ children }: AuthProps) => {
         console.log("entrou");
         setAuthToken(response.data.token);
         history.push("/dashboard");
+        toast.success("Seja bem vindo (:");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => toast.error("Email ou senha incorreto"));
   };
 
   const registrar = (userData: UserDataRegister, history: History) => {
@@ -47,8 +49,9 @@ export const AuthProvider = ({ children }: AuthProps) => {
       .post("register", userData)
       .then(() => {
         history.push("/login");
+        toast.success("Conta criada com sucesso");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => toast.error("Conta já cadastrada ou dados inválidos"));
   };
 
   const deslogar = (history: History) => {

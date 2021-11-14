@@ -23,7 +23,9 @@ const Register = () => {
     name: yup.string().required("Campo obrigatório"),
     email: yup.string().required("Campo obrigatório"),
     password: yup.string().required("Campo Obrigatório"),
-    passwordConfirmed: yup.string().required("Campo Obrigatório"),
+    passwordConfirmed: yup
+      .string()
+      .oneOf([yup.ref("password")], "Senha não confere"),
   });
 
   const {
