@@ -5,10 +5,12 @@ import { NavContainer } from "./styles";
 const NavBar = () => {
   return (
     <NavContainer>
-      <div className="navLogo">
-        <Logo />
+      <div className="navContainer">
+        <div className="navLogo">
+          <Logo />
+        </div>
+        <img src={profilePic} alt="perfil" />
       </div>
-      <img src={profilePic} alt="perfil" />
     </NavContainer>
   );
 };

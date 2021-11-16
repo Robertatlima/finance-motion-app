@@ -9,6 +9,14 @@ export const CabecalhoContainer = styled.div`
   img {
     height: 80px;
   }
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  .cabecalhoContainer {
+    width: 100%;
+    max-width: 1400px;
+  }
   .userInfo {
     width: 246px;
     display: flex;
