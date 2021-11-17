@@ -8,11 +8,13 @@ import Logo from "../../components/logo";
 import { Container } from "./styles";
 import { useAuth } from "../../Provider/Auth";
 import Button from "../../components/Button";
+import { motion } from "framer-motion";
 interface UserData {
   email: string;
   password: string;
 }
 const Login = () => {
+
   const history = useHistory();
 
   const schema = yup.object().shape({
@@ -34,6 +36,12 @@ const Login = () => {
   };
 
   return (
+    <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 1 }}
+  >
     <Container>
       <form onSubmit={handleSubmit(handleForm)}>
         <Logo />
@@ -75,6 +83,7 @@ const Login = () => {
         </Button>
       </form>
     </Container>
+    </motion.div>
   );
 };
 export default Login;
