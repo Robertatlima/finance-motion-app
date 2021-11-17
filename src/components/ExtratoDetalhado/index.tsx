@@ -16,6 +16,7 @@ const ExtratoDetalhado = ({ setExtrato }: DetalhadoProps) => {
   const handleClickCloseInsertModal = () => setInsertModal(false);
   return (
     <ExtratoDetalhadoContainer>
+
       <MenuDetalharPeriodo />
       <br />
       <p>Movimentação</p>
@@ -38,6 +39,7 @@ const ExtratoDetalhado = ({ setExtrato }: DetalhadoProps) => {
       <Button secondary fullWidth onClick={() => setExtrato(false)}>
         Voltar
       </Button>
+
     </ExtratoDetalhadoContainer>
   );
 };
