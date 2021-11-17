@@ -9,6 +9,7 @@ import Logo from "../../components/logo";
 import { Container } from "./styles";
 import { useAuth } from "../../Provider/Auth";
 import Button from "../../components/Button";
+import { motion } from "framer-motion";
 
 interface UserDataRegister {
   name: string;
@@ -39,6 +40,12 @@ const Register = () => {
   };
 
   return (
+    <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 1 }}
+  >
     <Container>
       <form onSubmit={handleSubmit(handleForm)}>
         <div className="textoRegister">
@@ -109,6 +116,7 @@ const Register = () => {
         </Button>
       </form>
     </Container>
+    </motion.div>
   );
 };
 export default Register;

@@ -7,22 +7,21 @@ import Register from "../pages/register";
 const Router = () => {
   return (
       <RouterContainer>
-    <Switch>
-      <Route exact path="/">
-        <Home />
-      </Route>
-      <Route path="/login">
-        <Login />
-      </Route>
-      <Route path="/register">
-        <Register />
-      </Route>
-      <Route path="/dashboard">
-        <Dashboard />
-      </Route>
-    </Switch>
-          </RouterContainer>
-
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/register">
+            <Register />
+          </Route>
+          <Route path="/dashboard">
+            <Dashboard />
+          </Route>
+        </Switch>
+      </RouterContainer>
   );
 };
 export default Router;
