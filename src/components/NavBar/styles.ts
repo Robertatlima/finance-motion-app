@@ -10,7 +10,9 @@ export const NavContainer = styled.div`
   img {
     height: 36px;
   }
-
+  .img-perfil {
+    cursor: pointer;
+  }
   .navContainer {
     display: flex;
     flex-direction: row;
