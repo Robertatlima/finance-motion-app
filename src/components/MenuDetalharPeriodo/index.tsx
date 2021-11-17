@@ -4,18 +4,18 @@ import Button from "../Button";
 import { MenuDetalharContainer } from "./styles";
 
 const meses = [
-  { id: 1, valor: "Janeiro" },
-  { id: 2, valor: "Fevereiro" },
-  { id: 3, valor: "Março" },
-  { id: 4, valor: "Abril" },
-  { id: 5, valor: "Maio" },
-  { id: 6, valor: "Junho" },
-  { id: 7, valor: "Julho" },
-  { id: 8, valor: "Agosto" },
-  { id: 9, valor: "Setembro" },
-  { id: 10, valor: "Outubro" },
-  { id: 11, valor: "Novembro" },
-  { id: 12, valor: "Dezembro" },
+  { id: 1, valor: "1" },
+  { id: 2, valor: "2" },
+  { id: 3, valor: "3" },
+  { id: 4, valor: "4" },
+  { id: 5, valor: "5" },
+  { id: 6, valor: "6" },
+  { id: 7, valor: "7" },
+  { id: 8, valor: "8" },
+  { id: 9, valor: "9" },
+  { id: 10, valor: "10" },
+  { id: 11, valor: "11" },
+  { id: 12, valor: "12" },
 ];
 
 const dias = [

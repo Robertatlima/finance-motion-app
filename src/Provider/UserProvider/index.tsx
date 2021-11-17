@@ -16,6 +16,7 @@ interface UserData {
   email: string;
   password: string;
   passwordConfirmed: string;
+  id: number;
 }
 interface UserProviderData {
   userToken: string;
@@ -30,6 +31,7 @@ export const UserProvider = ({ children }: UserProps) => {
   const [userToken, setUserToken] = useState(authToken || "");
 
   useEffect(() => {
+    if (userToken) {
       const decoder = jwtDecode<JwtPayload>(userToken);
       api
         .get(`/users/${decoder.sub}`, {
@@ -37,12 +39,13 @@ export const UserProvider = ({ children }: UserProps) => {
             Authorization: `Bearer ${userToken}`,
           },
         })
-        .then((response) => setUser(response.data))
-        .catch(err => console.log(err))
-       
-  },[authToken]);
-  
- 
+        .then((response) => {
+          setUser(response.data);
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [authToken]);
+
   return (
     <UserContext.Provider value={{ userToken, user }}>
       {children}

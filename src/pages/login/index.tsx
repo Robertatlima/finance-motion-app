@@ -29,7 +29,6 @@ const Login = () => {
   const { logar } = useAuth();
 
   const handleForm = (data: UserData) => {
-    console.log(data);
     logar(data, history);
   };
 
