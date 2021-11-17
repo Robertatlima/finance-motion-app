@@ -5,6 +5,7 @@ import Button from "../../components/Button";
 const Home = () => {
   const history = useHistory();
   return (
+    
     <Container>
       <Logo />
       <p>
