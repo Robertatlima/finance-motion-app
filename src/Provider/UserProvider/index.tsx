@@ -20,6 +20,7 @@ interface UserData {
 interface UserProviderData {
   userToken: string;
   user: UserData;
+  editProfile: (data: any) => void;
 }
 
 const UserContext = createContext<UserProviderData>({} as UserProviderData);
@@ -30,21 +31,30 @@ export const UserProvider = ({ children }: UserProps) => {
   const [userToken, setUserToken] = useState(authToken || "");
 
   useEffect(() => {
-      const decoder = jwtDecode<JwtPayload>(userToken);
-      api
-        .get(`/users/${decoder.sub}`, {
-          headers: {
-            Authorization: `Bearer ${userToken}`,
-          },
-        })
-        .then((response) => setUser(response.data))
-        .catch(err => console.log(err))
-       
-  },[authToken]);
-  
- 
+    const decoder = jwtDecode<JwtPayload>(userToken);
+    api
+      .get(`/users/${decoder.sub}`, {
+        headers: {
+          Authorization: `Bearer ${userToken}`,
+        },
+      })
+      .then((response) => setUser(response.data))
+      .catch((err) => console.log(err));
+  }, [authToken]);
+
+  const editProfile = (data: any) => {
+    const decoder = jwtDecode<JwtPayload>(userToken);
+    api
+      .patch(`/users/${decoder.sub}`, data, {
+        headers: {
+          Authorization: `Bearer ${userToken}`,
+        },
+      })
+      .then((response) => console.log(response))
+      .catch((err) => console.log(err));
+  };
   return (
-    <UserContext.Provider value={{ userToken, user }}>
+    <UserContext.Provider value={{ userToken, user, editProfile }}>
       {children}
     </UserContext.Provider>
   );

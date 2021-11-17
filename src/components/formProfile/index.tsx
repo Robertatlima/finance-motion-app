@@ -5,11 +5,12 @@ import { TextField } from "@material-ui/core";
 import Button from "../Button";
 import api from "../../services/api";
 import { Container } from "./styles";
+import { useUser } from "../../Provider/UserProvider";
 
 const FormProfile = ({ handleClickCloseInsertModal }: any) => {
   const schema = yup.object().shape({
-    password: yup.string().required("Campo Obrigatório"),
     newPassword: yup.string().required("Campo Obrigatório"),
+    password: yup.string().required("Campo Obrigatório"),
     confirmNewPassword: yup.string().required("Campo Obrigatório"),
   });
 
@@ -19,12 +20,11 @@ const FormProfile = ({ handleClickCloseInsertModal }: any) => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
+  const { user, editProfile } = useUser();
+
   const handleForm = (data: any) => {
     console.log(data);
-    //   api
-    //     .patch(`/users/${user}`, data)
-    //     .then((response) => console.log("Senha alterada com sucesso"))
-    //     .catch((err) => console.log(err));
+    editProfile(data);
   };
 
   return (
@@ -37,7 +37,7 @@ const FormProfile = ({ handleClickCloseInsertModal }: any) => {
           id="name"
           label="Nome"
           type="name"
-          defaultValue="Gustavo"
+          defaultValue={user.name}
           margin="normal"
           fullWidth
           size="small"
@@ -51,6 +51,7 @@ const FormProfile = ({ handleClickCloseInsertModal }: any) => {
           InputProps={{ disableUnderline: true }}
           id="email"
           label="Email"
+          defaultValue={user.email}
           type="email"
           margin="normal"
           fullWidth
@@ -65,17 +66,16 @@ const FormProfile = ({ handleClickCloseInsertModal }: any) => {
           variant="filled"
           InputProps={{ disableUnderline: true }}
           id="password"
-          label="Senha Atual"
+          label="Senha Antiga"
           type="password"
           margin="normal"
           fullWidth
           size="small"
           color="success"
-          {...register("password")}
-          error={!!errors.password}
-          helperText={errors.password?.message}
+          {...register("newPassword")}
+          error={!!errors.newPassword}
+          helperText={errors.newPassword?.message}
         />
-
         <TextField
           variant="filled"
           InputProps={{ disableUnderline: true }}
@@ -86,9 +86,9 @@ const FormProfile = ({ handleClickCloseInsertModal }: any) => {
           fullWidth
           size="small"
           color="success"
-          {...register("newPassword")}
-          error={!!errors.newPassword}
-          helperText={errors.newPassword?.message}
+          {...register("password")}
+          error={!!errors.password}
+          helperText={errors.password?.message}
         />
 
         <TextField
