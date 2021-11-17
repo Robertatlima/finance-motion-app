@@ -1,16 +1,21 @@
 import styled from "styled-components";
-
-export const Container = styled.div`
+interface ContainerProps {
+  progresso: string;
+}
+export const Container = styled.div<ContainerProps>`
   color: #101010;
-  background-color: var(--color-grey0);
+  background-color: #ffffff;
   border-radius: 8px;
-  width: 300px;
+  width: 345px;
   padding: 20px;
   margin: 0 auto;
   margin-bottom: 35px;
   display: flex;
   align-items: center;
   flex-direction: column;
+  @media (min-width: 1100px){
+    width: 300px;
+  }
   div:nth-child(1) {
     width: 100%;
     text-align: left;
@@ -55,14 +60,29 @@ export const Container = styled.div`
     display: flex;
     justify-content: flex-start;
     padding: 20px;
+    text-align: center;
+    position: relative;
   }
 
-  .marcador__mapa {
+  .marcador__map {
     color: green;
+    left: ${props => props.progresso};
     transform: rotate(180deg);
+    position: absolute;
+    bottom: 1.4rem;
+
   }
   .aviso {
     font-size: 8px;
     color: var(--color-grey50);
+    position: absolute;
+  }
+  .__aviso{
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
+   flex: 0;
+   position: relative;
+   bottom: -2rem;
   }
 `;

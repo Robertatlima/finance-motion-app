@@ -6,6 +6,12 @@ export const CabecalhoContainer = styled.div`
   background-color: var(--color-primary-variable-1);
   color: white;
   padding: 15px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  @media (min-width: 768px) {
+    align-items: center;
+  }
   img {
     height: 80px;
   }
