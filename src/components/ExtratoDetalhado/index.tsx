@@ -31,7 +31,6 @@ const ExtratoDetalhado = ({ setExtrato, lancamentos }: DetalhadoProps) => {
   const handleClickInsertModal = () => setInsertModal(true);
   const handleClickCloseInsertModal = () => setInsertModal(false);
 
-
   const { busca } = useLancamentos();
   console.log("aqui vai busca", busca);
 
@@ -43,12 +42,18 @@ const ExtratoDetalhado = ({ setExtrato, lancamentos }: DetalhadoProps) => {
       <br />
 
       {busca.length > 0
-        ? busca.reverse().map((lancamento) => {
-            return <CardExtratoResumido lancamento={lancamento} />;
-          })
-        : lancamentos?.reverse().map((lancamento) => {
-            return <CardExtratoResumido lancamento={lancamento} />;
-          })}
+        ? busca
+            .slice(0)
+            .reverse()
+            .map((lancamento) => {
+              return <CardExtratoResumido lancamento={lancamento} />;
+            })
+        : lancamentos
+            ?.slice(0)
+            .reverse()
+            .map((lancamento) => {
+              return <CardExtratoResumido lancamento={lancamento} />;
+            })}
 
       <button className="iconContainer" onClick={handleClickInsertModal}>
         <BsPlusCircle />

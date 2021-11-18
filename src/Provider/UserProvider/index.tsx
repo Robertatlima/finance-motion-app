@@ -55,6 +55,7 @@ export const UserProvider = ({ children }: UserProps) => {
       })
       .catch((err) => console.log(err));
   };
+
   useEffect(() => {
     if (userToken) {
       const decoder = jwtDecode<JwtPayload>(userToken);
@@ -65,15 +66,11 @@ export const UserProvider = ({ children }: UserProps) => {
           },
         })
 
-
         .then((response) => setUser(response.data))
-        .catch(err => console.log(err))
-       
-      }
-  },[])
-   
+        .catch((err) => console.log(err));
+    }
+  }, [userToken, insertModal]);
 
-  
   return (
     <UserContext.Provider
       value={{

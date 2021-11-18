@@ -3,7 +3,8 @@ import { useUser } from "../../Provider/UserProvider";
 import { CabecalhoContainer } from "./styles";
 
 const CabecalhoDashboard = () => {
-  const {user} = useUser()
+  const { user } = useUser();
+
   return (
     <CabecalhoContainer>
       <div className="userInfo">

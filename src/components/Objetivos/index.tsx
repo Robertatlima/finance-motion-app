@@ -7,7 +7,7 @@ import CardCabecalhoObjetivo from "../CabecalhoObjetivo";
 import CardObjetivo from "../CardObjetivo";
 import { ObjetivosContainer } from "./styles";
 
-interface objetivoProps{
+interface objetivoProps {
   id: string;
   nome: string;
   mes: number;
@@ -24,8 +24,10 @@ interface objetivoProps{
 const Objetivos = () => {
   const [objetivos, setObjetivos] = useState<objetivoProps[]>([]);
   const [objetivoFiltrado, setObjetivoFiltrado] = useState<objetivoProps[]>([]);
-  const {userToken, user} = useUser();
-   const listarObjetivos = () => {
+  const { userToken, user } = useUser();
+  const { lancamentos } = useLancamentos();
+
+  const listarObjetivos = () => {
     api
       .get(`extrato?userId=${user.id}&tipo=objetivo`, {
         headers: {
@@ -36,31 +38,22 @@ const Objetivos = () => {
         setObjetivos(response.data);
       })
       .catch((err) => console.log(err));
-     
-     
   };
-  useEffect(()=>{
-    listarObjetivos()
-  },[user])
+  useEffect(() => {
+    listarObjetivos();
+  }, [lancamentos]);
 
   return (
     <>
-      {objetivos.map((item) => {
-        return <CardObjetivo objetivo={item} />;
-      })}
-
+      <CardCabecalhoObjetivo />
+      <ObjetivosContainer>
+        <div className="containerObjetivos">
+          {objetivos.map((item) => {
+            return <CardObjetivo objetivo={item} />;
+          })}
+        </div>
+      </ObjetivosContainer>
     </>
-    // <ObjetivosContainer>
-    //   <CardCabecalhoObjetivo />
-    //   <div className="containerObjetivos">
-    //     <CardObjetivo />
-    //     <CardObjetivo />
-    //     <CardObjetivo />
-    //     <CardObjetivo />
-    //     <CardObjetivo />
-    //     <CardObjetivo />
-    //   </div>
-    // </ObjetivosContainer>
   );
 };
 

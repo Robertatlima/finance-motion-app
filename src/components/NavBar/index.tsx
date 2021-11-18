@@ -57,7 +57,6 @@ const NavBar = () => {
                 horizontal: "left",
               }}
             >
-              <MenuItem>Ajuda</MenuItem>
               <MenuItem onClick={handleClickInsertModal}>
                 Editar Perfil
               </MenuItem>
