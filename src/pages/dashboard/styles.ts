@@ -7,7 +7,14 @@ export const DashboardContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
-
+  .objetivoContainer{
+    display: flex;
+    max-width: 1000px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content:space-between;
+    margin-top: 10px;
+  }
   .dashboardContainer {
     display: flex;
     flex-direction: column;
@@ -15,7 +22,6 @@ export const DashboardContainer = styled.div`
     max-width: 1400px;
     width: 100%;
   }
-
   @media (min-width: 768px) {
     .dashboardContainer {
       flex-direction: row-reverse;

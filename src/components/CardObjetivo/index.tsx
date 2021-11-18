@@ -9,19 +9,15 @@ interface cardProps{
   valor: number;
   categoria: string;
   progresso: number;
-  aviso: string;
 }
-const CardObjetivo = ({
-  nome = "Comprar Casa",
-  valor = 200000,
-  categoria = "Habitação",
-  progresso = 50,
-  aviso = "Está quase lá",
-}) => {
+interface cardObjetivos{
+  objetivo: cardProps;
+}
+const CardObjetivo = ({objetivo}: cardObjetivos ) => {
   return (
-    <Container progresso={`${progresso - 2}%`}>
+    <Container progresso={`${objetivo.progresso + 4}%`}>
       <div className="__tituloCard">
-        <h4>{nome}</h4>
+        <h4>{objetivo.nome}</h4>
       </div>
       <div className="lista__valores__Objetivo">
         <div className="col__left">
@@ -29,22 +25,22 @@ const CardObjetivo = ({
           <div>Valor</div>
         </div>
         <div className="col__right">
-          <div>{categoria}</div>
-          <div>R${valor}</div>
+          <div>{objetivo.categoria}</div>
+          <div>R${objetivo.valor}</div>
         </div>
       </div>
       <div className="progress">
         <LinearProgress
           variant="determinate"
           color="success"
-          value={progresso}
+          value={objetivo.progresso}
           style={{ width: "100%" }}
         />
         
         <span className="marcador__map">{element}</span>
 
         <div className='__aviso'>
-          <span className="aviso">{aviso}</span>
+          <span className="aviso">Quase lá</span>
         </div>
       </div>
     </Container>

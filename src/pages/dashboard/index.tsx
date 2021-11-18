@@ -45,8 +45,12 @@ const Dashboard = () => {
               lancamentos={lancamentos}
             />
           )}
-          <Objetivos />
+          <div className="objetivoContainer">
+            <Objetivos />
+          </div>
+         
         </div>
+       
       </DashboardContainer>
     </motion.div>
   );

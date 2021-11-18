@@ -45,6 +45,7 @@ export const UserProvider = ({ children }: UserProps) => {
         .catch((err) => console.log(err));
     }
   }, [authToken]);
+  console.log(user)
 
   return (
     <UserContext.Provider value={{ userToken, user }}>

@@ -6,6 +6,7 @@ import { ExtratoDetalhadoContainer } from "./styles";
 import { Dialog } from "@material-ui/core";
 import { useState } from "react";
 import FormLancamento from "../ModalLancamentos";
+import { useLancamentos } from "../../Provider/Lancamentos";
 
 interface Lancamento {
   id: string;
@@ -32,6 +33,7 @@ const ExtratoDetalhado = ({ setExtrato }: DetalhadoProps) => {
   const [insertModal, setInsertModal] = useState(false);
   const handleClickInsertModal = () => setInsertModal(true);
   const handleClickCloseInsertModal = () => setInsertModal(false);
+  const {lancamentos} = useLancamentos()
   return (
     <ExtratoDetalhadoContainer>
 
