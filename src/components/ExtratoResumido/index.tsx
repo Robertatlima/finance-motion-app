@@ -30,9 +30,15 @@ const ExtratoResumido = ({ setExtrato, lancamentos }: ResumidodoProps) => {
       <br />
       {lancamentos && (
         <>
-          <CardExtratoResumido lancamento={lancamentos.reverse()[0]} />
-          <CardExtratoResumido lancamento={lancamentos.reverse()[1]} />
-          <CardExtratoResumido lancamento={lancamentos.reverse()[2]} />
+          <CardExtratoResumido
+            lancamento={lancamentos[lancamentos.length - 1]}
+          />
+          <CardExtratoResumido
+            lancamento={lancamentos[lancamentos.length - 2]}
+          />
+          <CardExtratoResumido
+            lancamento={lancamentos[lancamentos.length - 3]}
+          />
         </>
       )}
 

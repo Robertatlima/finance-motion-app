@@ -20,8 +20,6 @@ const Dashboard = () => {
     listarLancamentos();
   }, [user]);
 
-  console.log(lancamentos);
-
   return (
     <motion.div
       initial={{ opacity: 0 }}

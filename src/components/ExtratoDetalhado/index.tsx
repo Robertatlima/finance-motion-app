@@ -33,6 +33,7 @@ const ExtratoDetalhado = ({ setExtrato, lancamentos }: DetalhadoProps) => {
 
   const { busca } = useLancamentos();
   console.log("aqui vai busca", busca);
+
   return (
     <ExtratoDetalhadoContainer>
       <MenuDetalharPeriodo />
