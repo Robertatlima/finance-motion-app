@@ -6,6 +6,7 @@ import { ExtratoDetalhadoContainer } from "./styles";
 import { Dialog } from "@material-ui/core";
 import { useState } from "react";
 import FormLancamento from "../ModalLancamentos";
+import { useLancamentos } from "../../Provider/Lancamentos";
 
 interface Lancamento {
   id: string;
@@ -25,10 +26,14 @@ interface DetalhadoProps {
   lancamentos: Lancamento[];
 }
 
+
 const ExtratoDetalhado = ({ setExtrato, lancamentos }: DetalhadoProps) => {
+
   const [insertModal, setInsertModal] = useState(false);
   const handleClickInsertModal = () => setInsertModal(true);
   const handleClickCloseInsertModal = () => setInsertModal(false);
+  const { lancamentos } = useLancamentos();
+
   return (
     <ExtratoDetalhadoContainer>
       <MenuDetalharPeriodo />
@@ -36,9 +41,14 @@ const ExtratoDetalhado = ({ setExtrato, lancamentos }: DetalhadoProps) => {
       <p>Movimentação</p>
       <br />
 
-      {lancamentos?.reverse().map((lancamento) => {
-        return <CardExtratoResumido lancamento={lancamento} />;
-      })}
+
+      {lancamentos
+        ?.slice(0)
+        .reverse()
+        .map((lancamento) => {
+          return <CardExtratoResumido lancamento={lancamento} />;
+        })}
+
       <button className="iconContainer" onClick={handleClickInsertModal}>
         <BsPlusCircle />
       </button>
