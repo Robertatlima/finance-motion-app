@@ -2,19 +2,15 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  margin: 0 auto;
+  margin: 2rem auto;
   align-items: center;
-  font-size: 12px;
-
-  max-width: 260px;
-  margin-bottom: 32px;
+  grid-gap: 1rem;
   p {
+    font-size: 12px;
     text-align: end;
-    margin-top: 35px;
-    justify-content: start;
-    margin-left: 8px;
     color: var(--color-grey50);
     span {
+      display: block;
       color: var(--color-grey100);
     }
   }

@@ -40,7 +40,7 @@ export const UserProvider = ({ children }: UserProps) => {
         .then((response) => setUser(response.data))
         .catch(err => console.log(err))
        
-  },[authToken]);
+  },[]);
   
  
   return (
