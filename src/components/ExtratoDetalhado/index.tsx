@@ -31,6 +31,7 @@ const ExtratoDetalhado = ({ setExtrato, lancamentos }: DetalhadoProps) => {
   const handleClickInsertModal = () => setInsertModal(true);
   const handleClickCloseInsertModal = () => setInsertModal(false);
 
+
   const { busca } = useLancamentos();
   console.log("aqui vai busca", busca);
 
