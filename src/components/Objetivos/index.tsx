@@ -48,7 +48,7 @@ const Objetivos = () => {
       <CardCabecalhoObjetivo />
       <div className="containerObjetivos">
         {objetivos.map((item) => {
-          return <CardObjetivo objetivo={item} />;
+          return <CardObjetivo key={item.id} objetivo={item} />;
         })}
       </div>
     </ObjetivosContainer>

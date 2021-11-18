@@ -46,13 +46,23 @@ const ExtratoDetalhado = ({ setExtrato, lancamentos }: DetalhadoProps) => {
               .slice(0)
               .reverse()
               .map((lancamento) => {
-                return <CardExtratoResumido lancamento={lancamento} />;
+                return (
+                  <CardExtratoResumido
+                    key={lancamento.id}
+                    lancamento={lancamento}
+                  />
+                );
               })
           : lancamentos
               ?.slice(0)
               .reverse()
               .map((lancamento) => {
-                return <CardExtratoResumido lancamento={lancamento} />;
+                return (
+                  <CardExtratoResumido
+                    key={lancamento.id}
+                    lancamento={lancamento}
+                  />
+                );
               })}
       </div>
       <button className="iconContainer" onClick={handleClickInsertModal}>
