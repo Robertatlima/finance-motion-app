@@ -15,10 +15,32 @@ export const ObjetivosContainer = styled.div`
 
   @media (min-width: 768px) {
     .containerObjetivos {
-      max-width: 974px;
+      width: 350px;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-between;
+    }
+  }
+
+  @media (min-width: 900px) {
+    .containerObjetivos {
+      width: 500px;
+    }
+  }
+
+  @media (min-width: 1000px) {
+    .containerObjetivos {
+      width: 600px;
+    }
+  }
+  @media (min-width: 1100px) {
+    .containerObjetivos {
+      width: 750px;
+    }
+  }
+  @media (min-width: 1300px) {
+    .containerObjetivos {
+      width: 974px;
     }
   }
 `;

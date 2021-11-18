@@ -7,11 +7,13 @@ const CabecalhoDashboard = () => {
 
   return (
     <CabecalhoContainer>
-      <div className="userInfo">
-        <img src={profilePic} alt="profilePic" />
-        <div>
-          <h3>Seja bem-vindo</h3>
-          <h2>{user.name}</h2>
+      <div className="cabecalhoContainer">
+        <div className="userInfo">
+          <img src={profilePic} alt="profilePic" />
+          <div>
+            <h3>Seja bem-vindo</h3>
+            <h2>{user.name}</h2>
+          </div>
         </div>
       </div>
     </CabecalhoContainer>

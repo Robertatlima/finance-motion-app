@@ -44,16 +44,14 @@ const Objetivos = () => {
   }, [lancamentos]);
 
   return (
-    <>
+    <ObjetivosContainer>
       <CardCabecalhoObjetivo />
-      <ObjetivosContainer>
-        <div className="containerObjetivos">
-          {objetivos.map((item) => {
-            return <CardObjetivo objetivo={item} />;
-          })}
-        </div>
-      </ObjetivosContainer>
-    </>
+      <div className="containerObjetivos">
+        {objetivos.map((item) => {
+          return <CardObjetivo objetivo={item} />;
+        })}
+      </div>
+    </ObjetivosContainer>
   );
 };
 

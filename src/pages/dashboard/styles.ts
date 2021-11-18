@@ -12,7 +12,7 @@ export const DashboardContainer = styled.div`
     max-width: 1000px;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 10px;
   }
   .dashboardContainer {
