@@ -40,21 +40,21 @@ const ExtratoDetalhado = ({ setExtrato, lancamentos }: DetalhadoProps) => {
       <br />
       <p>Movimentação</p>
       <br />
-
-      {busca.length > 0
-        ? busca
-            .slice(0)
-            .reverse()
-            .map((lancamento) => {
-              return <CardExtratoResumido lancamento={lancamento} />;
-            })
-        : lancamentos
-            ?.slice(0)
-            .reverse()
-            .map((lancamento) => {
-              return <CardExtratoResumido lancamento={lancamento} />;
-            })}
-
+      <div className="scrollDetalhes">
+        {busca.length > 0
+          ? busca
+              .slice(0)
+              .reverse()
+              .map((lancamento) => {
+                return <CardExtratoResumido lancamento={lancamento} />;
+              })
+          : lancamentos
+              ?.slice(0)
+              .reverse()
+              .map((lancamento) => {
+                return <CardExtratoResumido lancamento={lancamento} />;
+              })}
+      </div>
       <button className="iconContainer" onClick={handleClickInsertModal}>
         <BsPlusCircle />
       </button>
