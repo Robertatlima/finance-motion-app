@@ -1,8 +1,9 @@
 import { useHistory } from "react-router";
 import Logo from "../../components/logo";
-import { Container } from "./styles";
+
 import Button from "../../components/Button";
 import { motion } from "framer-motion";
+import { Container } from "../login/styles";
 const Home = () => {
   const history = useHistory();
   return (
@@ -14,7 +15,7 @@ const Home = () => {
     >
       <Container>
         <Logo />
-        <p>
+        <p className="paragrafoHome">
           Organize seu dinheiro em tempo real em uma solução completa, prática e
           segura.
         </p>

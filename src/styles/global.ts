@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
 }
 body{
 
-   background-color: #ffffff; 
+   background-color: var(--color-grey0);
    color: var(--color-gray100);
    font-family: "Inter" , sans-serif;
 }

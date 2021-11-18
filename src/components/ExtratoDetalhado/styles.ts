@@ -20,4 +20,8 @@ export const ExtratoDetalhadoContainer = styled.div`
     color: var(--color-grey50);
     margin: 50px 0;
   }
+  .scrollDetalhes {
+    max-height: 400px;
+    overflow-y: auto;
+  }
 `;

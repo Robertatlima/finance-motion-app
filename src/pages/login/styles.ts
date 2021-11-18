@@ -13,6 +13,15 @@ export const Container = styled.div`
     margin: auto;
     padding: 0 15px;
   }
+  .paragrafoHome{
+    align-items: center;
+    grid-gap: 1rem;
+    display: flex;
+    margin: 2rem auto;
+    text-align: center;
+    max-width: 335px;
+    color: var(--color-grey50)
+  }
   form{
     display: flex;
     flex-direction: column;

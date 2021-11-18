@@ -8,19 +8,17 @@ export const CabecalhoContainer = styled.div`
   padding: 15px;
   display: flex;
   align-items: flex-start;
+  justify-content: center;
   img {
     height: 80px;
   }
-  /* display: flex;
-  flex-direction: row;
-  justify-content: center; */
 
   .cabecalhoContainer {
     width: 100%;
     max-width: 1400px;
   }
   .userInfo {
-    width: 246px;
+    width: 280px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -28,6 +26,5 @@ export const CabecalhoContainer = styled.div`
   }
   @media (min-width: 768px) {
     align-items: center;
-    
   }
 `;

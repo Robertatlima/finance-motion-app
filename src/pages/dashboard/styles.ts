@@ -7,12 +7,12 @@ export const DashboardContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
-  .objetivoContainer{
+  .objetivoContainer {
     display: flex;
     max-width: 1000px;
     flex-wrap: wrap;
     align-items: center;
-    justify-content:space-between;
+    justify-content: center;
     margin-top: 10px;
   }
   .dashboardContainer {

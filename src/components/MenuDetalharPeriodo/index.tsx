@@ -49,7 +49,7 @@ interface filtroMes {
 
 const MenuDetalharPeriodo = () => {
   const { lancamentos, setBusca } = useLancamentos();
-  const [mes, setMes] = useState(1);
+  const [mes, setMes] = useState(0);
   const [dia, setDia] = useState(1);
 
   const handleMes = (event: any) => {
@@ -62,8 +62,9 @@ const MenuDetalharPeriodo = () => {
   };
 
   const handleForm = () => {
-    const filtroMes = lancamentos.filter((el) => el?.mes == mes);
+    const filtroMes = lancamentos.filter((el) => el?.mes === mes);
     setBusca(filtroMes);
+    setMes(0);
     console.log(filtroMes);
   };
 
