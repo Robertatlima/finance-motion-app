@@ -3,21 +3,44 @@ import CardExtratoResumido from "../CardExtratoResumido";
 import CardSaldoGeral from "../CardSaldoGeral";
 import { ExtratoResumidoContainer } from "./styles";
 
-interface ResumidodoProps {
-  setExtrato: (value: boolean) => void;
+interface Lancamento {
+  id: string;
+  nome: string;
+  mes: number;
+  dia: number;
+  ano: number;
+  valor: number;
+  categoria: string;
+  progresso: number;
+  tipo: string;
+  userId: string;
 }
 
-const ExtratoResumido = ({ setExtrato }: ResumidodoProps) => {
+interface ResumidodoProps {
+  setExtrato: (value: boolean) => void;
+  lancamentos: Lancamento[];
+}
+
+const ExtratoResumido = ({ setExtrato, lancamentos }: ResumidodoProps) => {
   return (
     <ExtratoResumidoContainer>
       <CardSaldoGeral />
       <br />
       <p>Movimentação</p>
       <br />
-      {/* fazer o map com 3 primeiras movimentações */}
-      <CardExtratoResumido />
-      <CardExtratoResumido nome="Objetivo" tipo="objetivo" />
-      <CardExtratoResumido nome="Salário" tipo="entrada" />
+      {lancamentos && (
+        <>
+          <CardExtratoResumido
+            lancamento={lancamentos[lancamentos.length - 1]}
+          />
+          <CardExtratoResumido
+            lancamento={lancamentos[lancamentos.length - 2]}
+          />
+          <CardExtratoResumido
+            lancamento={lancamentos[lancamentos.length - 3]}
+          />
+        </>
+      )}
 
       <Button secondary fullWidth onClick={() => setExtrato(true)}>
         Detalhar

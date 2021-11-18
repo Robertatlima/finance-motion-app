@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }: AuthProps) => {
       .post("login", userData)
       .then((response) => {
         localStorage.setItem("token", response.data.accessToken);
-        console.log("entrou");
+
         setAuthToken(response.data.token);
         history.push("/dashboard");
         toast.success("Seja bem vindo (:");

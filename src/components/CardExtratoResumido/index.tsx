@@ -1,19 +1,37 @@
 import { CardExtratoResumidoContainer } from "./styles";
 
-const CardExtratoResumido = ({
-  nome = "MercadoKenzie",
-  data = "06/11/2021",
-  valor = "R$900,00",
-  tipo = "saída",
-}) => {
+interface Lancamento {
+  id: string;
+  nome: string;
+  mes: number;
+  dia: number;
+  ano: number;
+  valor: number;
+  categoria: string;
+  progresso: number;
+  tipo: string;
+  userId: string;
+}
+
+interface ObjLancamento {
+  lancamento: Lancamento;
+}
+
+const CardExtratoResumido = ({ lancamento }: ObjLancamento) => {
   return (
-    <CardExtratoResumidoContainer tipo={tipo}>
-      <div className="innerContainer">
-        <p>{nome}</p>
-        <p>{valor}</p>
-      </div>
-      <p>{data}</p>
-    </CardExtratoResumidoContainer>
+    <>
+      {lancamento && (
+        <CardExtratoResumidoContainer tipo={lancamento.tipo}>
+          <div className="innerContainer">
+            <p>{lancamento.nome}</p>
+            <p>R$ {lancamento.valor.toFixed(2)}</p>
+          </div>
+          <p>
+            {lancamento.dia}/{lancamento.mes}/{lancamento.ano}
+          </p>
+        </CardExtratoResumidoContainer>
+      )}
+    </>
   );
 };
 export default CardExtratoResumido;
