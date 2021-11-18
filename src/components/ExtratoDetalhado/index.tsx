@@ -28,8 +28,6 @@ interface DetalhadoProps {
 }
 
 
-const ExtratoDetalhado = ({ setExtrato, lancamentos }: DetalhadoProps) => {
-
 const ExtratoDetalhado = ({ setExtrato }: DetalhadoProps) => {
   const [insertModal, setInsertModal] = useState(false);
   const handleClickInsertModal = () => setInsertModal(true);
@@ -45,17 +43,7 @@ const ExtratoDetalhado = ({ setExtrato }: DetalhadoProps) => {
       {lancamentos?.reverse().map((lancamento) => {
         return <CardExtratoResumido lancamento={lancamento} />;
       })}
-      <button className="iconContainer">
-
-      {/* map com todas as entradas usando CardExtratoResumido*/}
-      <CardExtratoResumido />
-      <CardExtratoResumido nome="Objetivo" tipo="objetivo" />
-      <CardExtratoResumido nome="Salário" tipo="entrada" />
-      <CardExtratoResumido />
-      <CardExtratoResumido nome="Objetivo" tipo="objetivo" />
-      <CardExtratoResumido nome="Salário" tipo="entrada" />
-      <button className="iconContainer" onClick={handleClickInsertModal}>
-
+       <button className="iconContainer" onClick={handleClickInsertModal}>
         <BsPlusCircle />
       </button>
       <Dialog open={insertModal} onClose={handleClickCloseInsertModal}>
@@ -66,7 +54,6 @@ const ExtratoDetalhado = ({ setExtrato }: DetalhadoProps) => {
       <Button secondary fullWidth onClick={() => setExtrato(false)}>
         Voltar
       </Button>
-
     </ExtratoDetalhadoContainer>
   );
 };
