@@ -9,9 +9,18 @@ import { useUser } from "../../Provider/UserProvider";
 
 const FormProfile = ({ handleClickCloseInsertModal }: any) => {
   const schema = yup.object().shape({
-    newPassword: yup.string().required("Campo Obrigatório"),
-    password: yup.string().required("Campo Obrigatório"),
-    confirmNewPassword: yup.string().required("Campo Obrigatório"),
+    // newPassword: yup.string().required("Campo Obrigatório"),
+    name: yup.string().required("Campo Obrigatório"),
+    email: yup.string().email("Email inválido").required("Campo obrigatório"),
+    password: yup
+      .string()
+      .required("Campo Obrigatório")
+      .min(8, "Mínimo de 8 caracteres"),
+    confirmNewPassword: yup
+      .string()
+      .min(0 || 8, "Mínimo de 8 caracteres")
+      .oneOf([yup.ref("password")], "Senhas não conferem")
+      .required("Campo Obrigatório"),
   });
 
   const {
@@ -30,7 +39,7 @@ const FormProfile = ({ handleClickCloseInsertModal }: any) => {
   return (
     <Container>
       <form onSubmit={handleSubmit(handleForm)}>
-        <h2>Editar Perfil</h2>
+        <h2>Editar Usuário</h2>
         <TextField
           variant="filled"
           InputProps={{ disableUnderline: true }}
@@ -62,11 +71,11 @@ const FormProfile = ({ handleClickCloseInsertModal }: any) => {
           helperText={errors.email?.message}
         />
 
-        <TextField
+        {/* <TextField
           variant="filled"
           InputProps={{ disableUnderline: true }}
           id="password"
-          label="Senha Antiga"
+          label="Senha atual"
           type="password"
           margin="normal"
           fullWidth
@@ -75,7 +84,7 @@ const FormProfile = ({ handleClickCloseInsertModal }: any) => {
           {...register("newPassword")}
           error={!!errors.newPassword}
           helperText={errors.newPassword?.message}
-        />
+        /> */}
         <TextField
           variant="filled"
           InputProps={{ disableUnderline: true }}
@@ -94,8 +103,8 @@ const FormProfile = ({ handleClickCloseInsertModal }: any) => {
         <TextField
           variant="filled"
           InputProps={{ disableUnderline: true }}
-          id="password"
-          label="Senha Atual"
+          id="confirmPassword"
+          label="Confirme Nova Senha"
           type="password"
           margin="normal"
           fullWidth
@@ -105,7 +114,7 @@ const FormProfile = ({ handleClickCloseInsertModal }: any) => {
           error={!!errors.confirmNewPassword}
           helperText={errors.confirmNewPassword?.message}
         />
-        <Button fullWidth disable type="submit">
+        <Button secondary={true} fullWidth type="submit">
           Confirmar
         </Button>
       </form>

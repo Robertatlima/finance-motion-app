@@ -6,12 +6,16 @@ import { useAuth } from "../../Provider/Auth";
 import { Dialog, Menu, MenuItem } from "@material-ui/core";
 import { useHistory } from "react-router";
 import FormProfile from "../formProfile";
+import { useUser } from "../../Provider/UserProvider";
 
 const NavBar = () => {
   const history = useHistory();
-  const [insertModal, setInsertModal] = useState(false);
+  // const [insertModal, setInsertModal] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const { deslogar } = useAuth();
+
+  const { insertModal, handleClickCloseInsertModal, handleClickInsertModal } =
+    useUser();
 
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -24,8 +28,8 @@ const NavBar = () => {
     setAnchorEl(null);
   };
 
-  const handleClickInsertModal = () => setInsertModal(true);
-  const handleClickCloseInsertModal = () => setInsertModal(false);
+  // const handleClickInsertModal = () => setInsertModal(true);
+  // const handleClickCloseInsertModal = () => setInsertModal(false);
   return (
     <NavContainer>
       <div className="navContainer">
@@ -61,6 +65,7 @@ const NavBar = () => {
             </Menu>
           </div>
           <Dialog
+            className="modal-profile"
             // fullScreen={fullScreen}
             open={insertModal}
             onClose={handleClickCloseInsertModal}

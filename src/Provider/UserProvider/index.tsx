@@ -8,6 +8,8 @@ import {
 import api from "../../services/api";
 import jwtDecode, { JwtPayload } from "jwt-decode";
 import { useAuth } from "../Auth";
+import { toast } from "react-toastify";
+
 interface UserProps {
   children: ReactNode;
 }
@@ -21,6 +23,9 @@ interface UserProviderData {
   userToken: string;
   user: UserData;
   editProfile: (data: any) => void;
+  insertModal: boolean;
+  handleClickInsertModal: () => void;
+  handleClickCloseInsertModal: () => void;
 }
 
 const UserContext = createContext<UserProviderData>({} as UserProviderData);
@@ -42,6 +47,10 @@ export const UserProvider = ({ children }: UserProps) => {
       .catch((err) => console.log(err));
   }, [authToken]);
 
+  const [insertModal, setInsertModal] = useState(false);
+  const handleClickInsertModal = () => setInsertModal(true);
+  const handleClickCloseInsertModal = () => setInsertModal(false);
+
   const editProfile = (data: any) => {
     const decoder = jwtDecode<JwtPayload>(userToken);
     api
@@ -50,11 +59,24 @@ export const UserProvider = ({ children }: UserProps) => {
           Authorization: `Bearer ${userToken}`,
         },
       })
-      .then((response) => console.log(response))
+      .then((response) => {
+        toast.success("Dados alterados com sucesso");
+        setInsertModal(false);
+        console.log(response);
+      })
       .catch((err) => console.log(err));
   };
   return (
-    <UserContext.Provider value={{ userToken, user, editProfile }}>
+    <UserContext.Provider
+      value={{
+        userToken,
+        user,
+        editProfile,
+        insertModal,
+        handleClickInsertModal,
+        handleClickCloseInsertModal,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );
