@@ -18,6 +18,7 @@ interface UserData {
   email: string;
   password: string;
   passwordConfirmed: string;
+  id: number;
 }
 interface UserProviderData {
   userToken: string;
@@ -51,21 +52,36 @@ export const UserProvider = ({ children }: UserProps) => {
   const handleClickInsertModal = () => setInsertModal(true);
   const handleClickCloseInsertModal = () => setInsertModal(false);
 
-  const editProfile = (data: any) => {
-    const decoder = jwtDecode<JwtPayload>(userToken);
-    api
-      .patch(`/users/${decoder.sub}`, data, {
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-        },
-      })
-      .then((response) => {
-        toast.success("Dados alterados com sucesso");
-        setInsertModal(false);
-        console.log(response);
-      })
-      .catch((err) => console.log(err));
-  };
+  // const editProfile = (data: any) => {
+  //   const decoder = jwtDecode<JwtPayload>(userToken);
+  //   api
+  //     .patch(`/users/${decoder.sub}`, data, {
+  //       headers: {
+  //         Authorization: `Bearer ${userToken}`,
+  //       },
+  //     })
+  //     .then((response) => {
+  //       toast.success("Dados alterados com sucesso");
+  //       setInsertModal(false);
+  //       console.log(response);
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
+    if (userToken) {
+      const decoder = jwtDecode<JwtPayload>(userToken);
+      api
+        .get(`/users/${decoder.sub}`, {
+          headers: {
+            Authorization: `Bearer ${userToken}`,
+          },
+        })
+        .then((response) => {
+          setUser(response.data);
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [authToken]);
+
   return (
     <UserContext.Provider
       value={{
