@@ -48,19 +48,7 @@ const Objetivos = () => {
       {objetivos.map((item) => {
         return <CardObjetivo objetivo={item} />;
       })}
-
-    </>
-    // <ObjetivosContainer>
-    //   <CardCabecalhoObjetivo />
-    //   <div className="containerObjetivos">
-    //     <CardObjetivo />
-    //     <CardObjetivo />
-    //     <CardObjetivo />
-    //     <CardObjetivo />
-    //     <CardObjetivo />
-    //     <CardObjetivo />
-    //   </div>
-    // </ObjetivosContainer>
+   </>
   );
 };
 
