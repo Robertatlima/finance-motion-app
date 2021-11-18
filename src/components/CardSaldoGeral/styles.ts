@@ -27,5 +27,6 @@ export const CardSaldoContainer = styled.div`
     background-color: transparent;
     color: white;
     font-size: 35px;
+    cursor: pointer;
   }
 `;

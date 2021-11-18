@@ -1,3 +1,6 @@
+import { Dialog } from "@material-ui/core";
+import { useState } from "react";
+import ModalDetalhes from "../ModalDetalhes";
 import { CardExtratoResumidoContainer } from "./styles";
 
 interface Lancamento {
@@ -18,10 +21,17 @@ interface ObjLancamento {
 }
 
 const CardExtratoResumido = ({ lancamento }: ObjLancamento) => {
+  const [openModal, setOpenModal] = useState(false);
+  const handleClickOpenModal = () => setOpenModal(true);
+  const handleClickCloseModal = () => setOpenModal(false);
+
   return (
     <>
       {lancamento && (
-        <CardExtratoResumidoContainer tipo={lancamento.tipo}>
+        <CardExtratoResumidoContainer
+          onClick={handleClickOpenModal}
+          tipo={lancamento.tipo}
+        >
           <div className="innerContainer">
             <p>{lancamento.nome}</p>
             <p>R$ {lancamento.valor.toFixed(2)}</p>
@@ -29,6 +39,13 @@ const CardExtratoResumido = ({ lancamento }: ObjLancamento) => {
           <p>
             {lancamento.dia}/{lancamento.mes}/{lancamento.ano}
           </p>
+          <Dialog open={openModal} onClose={handleClickCloseModal}>
+            <ModalDetalhes
+              openModal={openModal}
+              lancamento={lancamento}
+              handleClickCloseModal={handleClickCloseModal}
+            />
+          </Dialog>
         </CardExtratoResumidoContainer>
       )}
     </>

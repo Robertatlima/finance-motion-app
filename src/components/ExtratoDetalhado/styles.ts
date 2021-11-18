@@ -19,6 +19,7 @@ export const ExtratoDetalhadoContainer = styled.div`
     font-size: 50px;
     color: var(--color-grey50);
     margin: 50px 0;
+    cursor: pointer;
   }
   .scrollDetalhes {
     max-height: 400px;

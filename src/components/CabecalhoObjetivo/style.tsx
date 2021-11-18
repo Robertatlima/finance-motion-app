@@ -23,6 +23,11 @@ export const Container = styled.div`
     flex: 1;
     align-items: center;
   }
+
+  .icon {
+    cursor: pointer;
+  }
+
   div:nth-child(2) {
     font-size: 40px;
   }
