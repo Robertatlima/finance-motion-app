@@ -39,14 +39,13 @@ export const UserProvider = ({ children }: UserProps) => {
             Authorization: `Bearer ${userToken}`,
           },
         })
-        .then((response) => {
-          setUser(response.data);
-        })
-        .catch((err) => console.log(err));
-    }
-  }, [authToken]);
-  console.log(user)
 
+
+        .then((response) => setUser(response.data))
+        .catch(err => console.log(err))
+       
+  },[]);
+  
   return (
     <UserContext.Provider value={{ userToken, user }}>
       {children}

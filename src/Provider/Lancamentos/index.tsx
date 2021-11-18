@@ -1,4 +1,11 @@
-import { createContext, useState, useContext, ReactNode } from "react";
+import {
+  createContext,
+  useState,
+  useContext,
+  ReactNode,
+  Dispatch,
+  SetStateAction,
+} from "react";
 
 import api from "../../services/api";
 import { useAuth } from "../Auth";
@@ -23,6 +30,8 @@ interface Lancamento {
 interface LancamentosProviderData {
   lancamentos: Lancamento[];
   listarLancamentos: () => void;
+  busca: Lancamento[];
+  setBusca: Dispatch<SetStateAction<Lancamento[]>>;
 }
 
 const LancamentosContext = createContext<LancamentosProviderData>(
@@ -32,6 +41,7 @@ const LancamentosContext = createContext<LancamentosProviderData>(
 export const LancamentosProvider = ({ children }: LancamentosProviderProps) => {
   const [lancamentos, setLancamentos] = useState([]);
   const { user, userToken } = useUser();
+  const [busca, setBusca] = useState<Lancamento[]>([]);
 
   const listarLancamentos = () => {
     api
@@ -47,7 +57,9 @@ export const LancamentosProvider = ({ children }: LancamentosProviderProps) => {
   };
 
   return (
-    <LancamentosContext.Provider value={{ lancamentos, listarLancamentos }}>
+    <LancamentosContext.Provider
+      value={{ lancamentos, listarLancamentos, busca, setBusca }}
+    >
       {children}
     </LancamentosContext.Provider>
   );

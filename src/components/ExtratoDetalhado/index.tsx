@@ -21,31 +21,36 @@ interface Lancamento {
   userId: string;
 }
 
-
-
 interface DetalhadoProps {
   setExtrato: (value: boolean) => void;
   lancamentos: Lancamento[];
 }
 
-
-const ExtratoDetalhado = ({ setExtrato }: DetalhadoProps) => {
+const ExtratoDetalhado = ({ setExtrato, lancamentos }: DetalhadoProps) => {
   const [insertModal, setInsertModal] = useState(false);
   const handleClickInsertModal = () => setInsertModal(true);
   const handleClickCloseInsertModal = () => setInsertModal(false);
-  const {lancamentos} = useLancamentos()
+
+
+  const { busca } = useLancamentos();
+  console.log("aqui vai busca", busca);
+
   return (
     <ExtratoDetalhadoContainer>
-
       <MenuDetalharPeriodo />
       <br />
       <p>Movimentação</p>
       <br />
 
-      {lancamentos?.reverse().map((lancamento) => {
-        return <CardExtratoResumido lancamento={lancamento} />;
-      })}
-       <button className="iconContainer" onClick={handleClickInsertModal}>
+      {busca.length > 0
+        ? busca.reverse().map((lancamento) => {
+            return <CardExtratoResumido lancamento={lancamento} />;
+          })
+        : lancamentos?.reverse().map((lancamento) => {
+            return <CardExtratoResumido lancamento={lancamento} />;
+          })}
+
+      <button className="iconContainer" onClick={handleClickInsertModal}>
         <BsPlusCircle />
       </button>
       <Dialog open={insertModal} onClose={handleClickCloseInsertModal}>

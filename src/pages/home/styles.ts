@@ -13,5 +13,6 @@ export const Container = styled.div`
     margin-bottom: 40px;
     color: var(--color-grey50);
     max-width: 340px;
+    text-align: center;
   }
 `;

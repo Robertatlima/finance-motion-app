@@ -6,10 +6,11 @@ import { TextField } from "@material-ui/core";
 
 import SvgRegister from "../../components/svgRegister";
 import Logo from "../../components/logo";
-import { Container } from "./styles";
+
 import { useAuth } from "../../Provider/Auth";
 import Button from "../../components/Button";
 import { motion } from "framer-motion";
+import { Container } from "../login/styles";
 
 interface UserDataRegister {
   name: string;

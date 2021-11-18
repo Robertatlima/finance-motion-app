@@ -34,6 +34,9 @@ h3{
 p{
     font-size: 16px;
 }
-
+.MuiFormControl-root{
+    margin-top: 0 !important; 
+    margin-bottom: 1rem !important;
+}
 `;
 export default GlobalStyle;
