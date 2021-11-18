@@ -39,7 +39,7 @@ const FormProfile = ({ handleClickCloseInsertModal }: any) => {
   return (
     <Container>
       <form onSubmit={handleSubmit(handleForm)}>
-        <h2>Editar Usuário</h2>
+        <h3>Editar Usuário</h3>
         <TextField
           variant="filled"
           InputProps={{ disableUnderline: true }}

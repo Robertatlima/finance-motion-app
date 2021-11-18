@@ -1,7 +1,10 @@
+import { useLancamentos } from "../../Provider/Lancamentos";
 import Button from "../Button";
 import CardExtratoResumido from "../CardExtratoResumido";
 import CardSaldoGeral from "../CardSaldoGeral";
 import { ExtratoResumidoContainer } from "./styles";
+import { toast } from "react-toastify";
+import { useEffect } from "react";
 
 interface Lancamento {
   id: string;
@@ -22,9 +25,38 @@ interface ResumidodoProps {
 }
 
 const ExtratoResumido = ({ setExtrato, lancamentos }: ResumidodoProps) => {
+  const entradas = lancamentos
+    .filter((lancamento) => {
+      return lancamento.tipo === "entrada";
+    })
+    .reduce(function (acc, obj) {
+      return acc + obj.valor;
+    }, 0);
+  const saidas = lancamentos
+    .filter((lancamento) => {
+      return lancamento.tipo === "saída";
+    })
+    .reduce(function (acc, obj) {
+      return acc + obj.valor;
+    }, 0);
+  const objetivos = lancamentos
+    .filter((lancamento) => {
+      return lancamento.tipo === "objetivo";
+    })
+    .reduce(function (acc, obj) {
+      return acc + obj.valor;
+    }, 0);
+  const saldoGeral = entradas - saidas - objetivos;
+
+  useEffect(() => {
+    if (saldoGeral <= 0) {
+      toast.error("Saldo negativo :(");
+    }
+  }, [saldoGeral]);
+
   return (
     <ExtratoResumidoContainer>
-      <CardSaldoGeral />
+      <CardSaldoGeral saldoGeral={saldoGeral} />
       <br />
       <p>Movimentação</p>
       <br />

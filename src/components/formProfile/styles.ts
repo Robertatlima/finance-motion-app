@@ -15,9 +15,11 @@ export const Container = styled.div`
     margin-top: 15px;
     width: 90%;
   }
-  form h2 {
+  form h3 {
     padding: 15px;
     width: 100%;
     background-color: var(--color-secondary);
+    color: white;
+    text-align: left;
   }
 `;
