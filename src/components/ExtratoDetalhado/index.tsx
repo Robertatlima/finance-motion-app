@@ -26,7 +26,9 @@ interface DetalhadoProps {
   lancamentos: Lancamento[];
 }
 
-const ExtratoDetalhado = ({ setExtrato }: DetalhadoProps) => {
+
+const ExtratoDetalhado = ({ setExtrato, lancamentos }: DetalhadoProps) => {
+
   const [insertModal, setInsertModal] = useState(false);
   const handleClickInsertModal = () => setInsertModal(true);
   const handleClickCloseInsertModal = () => setInsertModal(false);
@@ -39,12 +41,14 @@ const ExtratoDetalhado = ({ setExtrato }: DetalhadoProps) => {
       <p>Movimentação</p>
       <br />
 
+
       {lancamentos
         ?.slice(0)
         .reverse()
         .map((lancamento) => {
           return <CardExtratoResumido lancamento={lancamento} />;
         })}
+
       <button className="iconContainer" onClick={handleClickInsertModal}>
         <BsPlusCircle />
       </button>
