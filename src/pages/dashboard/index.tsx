@@ -11,7 +11,6 @@ import { useUser } from "../../Provider/UserProvider";
 
 import { motion } from "framer-motion";
 
-
 const Dashboard = () => {
   const [extrato, setExtrato] = useState(false);
   const { lancamentos, listarLancamentos } = useLancamentos();
@@ -20,8 +19,6 @@ const Dashboard = () => {
   useEffect(() => {
     listarLancamentos();
   }, [user]);
-
-  console.log(lancamentos);
 
   return (
     <motion.div
