@@ -28,6 +28,7 @@ const FormLancamento = ({ handleClickCloseInsertModal }: any) => {
     tipo: yup.string().required("Campo Obrigatório"),
     frequencia: yup.string().required("Campo Obrigatório"),
     date: yup.string().required("Campo Obrigatório"),
+
     nome: yup.string().required("Campo Obrigatório"),
     valor: yup.string().required("Campo Obrigatório"),
     categoria: yup.string().required("Campo Obrigatório"),
