@@ -8,7 +8,7 @@ import { Container } from "./styles";
 const FormLancamento = ({ handleClickCloseInsertModal }: any) => {
   const schema = yup.object().shape({
     tipo: yup.string().required("Campo Obrigatório"),
-    frquencia: yup.string().required("Campo Obrigatório"),
+    frequencia: yup.string().required("Campo Obrigatório"),
     data: yup.string().required("Campo Obrigatório"),
     nome: yup.string().required("Campo Obrigatório"),
   });
