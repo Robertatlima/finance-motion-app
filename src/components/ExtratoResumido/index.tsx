@@ -5,6 +5,7 @@ import CardSaldoGeral from "../CardSaldoGeral";
 import { ExtratoResumidoContainer } from "./styles";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
+import { motion } from "framer-motion";
 
 interface Lancamento {
   id: string;
@@ -56,27 +57,34 @@ const ExtratoResumido = ({ setExtrato, lancamentos }: ResumidodoProps) => {
 
   return (
     <ExtratoResumidoContainer>
-      <CardSaldoGeral saldoGeral={saldoGeral} />
-      <br />
-      <p>Movimentação</p>
-      <br />
-      {lancamentos && (
-        <>
-          <CardExtratoResumido
-            lancamento={lancamentos[lancamentos.length - 1]}
-          />
-          <CardExtratoResumido
-            lancamento={lancamentos[lancamentos.length - 2]}
-          />
-          <CardExtratoResumido
-            lancamento={lancamentos[lancamentos.length - 3]}
-          />
-        </>
-      )}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <CardSaldoGeral saldoGeral={saldoGeral} />
+        <br />
+        <p>Movimentação</p>
+        <br />
+        {lancamentos && (
+          <>
+            <CardExtratoResumido
+              lancamento={lancamentos[lancamentos.length - 1]}
+            />
+            <CardExtratoResumido
+              lancamento={lancamentos[lancamentos.length - 2]}
+            />
+            <CardExtratoResumido
+              lancamento={lancamentos[lancamentos.length - 3]}
+            />
+          </>
+        )}
 
-      <Button secondary fullWidth onClick={() => setExtrato(true)}>
-        Detalhar
-      </Button>
+        <Button secondary fullWidth onClick={() => setExtrato(true)}>
+          Detalhar
+        </Button>
+      </motion.div>
     </ExtratoResumidoContainer>
   );
 };
