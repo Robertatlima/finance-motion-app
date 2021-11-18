@@ -5,7 +5,7 @@ const SvgRegister = () => {
   return (
     <Container>
       <p>
-        <span>De o Primeiro passo para mudar a sua vida</span>, não deixe para
+        <span>De o Primeiro passo para mudar a sua vida,</span> não deixe para
         depois o que pode começar agora!!
       </p>
       <img src={imgRegister} alt="img login" />

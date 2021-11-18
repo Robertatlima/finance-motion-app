@@ -2,21 +2,18 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  margin: 0 auto;
+  margin: 2rem auto;
   align-items: center;
-  font-size: 12px;
-  max-width: 260px;
-  margin-bottom: 29px;
-
-  img {
+  grid-gap: 1rem;
+  img{
     width: 85px;
-    height: 70px;
   }
   p {
-    margin-left: 8px;
-    margin-top: 18px;
+    font-size: 12px;
+    text-align: end;
     color: var(--color-grey50);
     span {
+      display: block;
       color: var(--color-grey100);
     }
   }
