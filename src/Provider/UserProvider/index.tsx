@@ -36,37 +36,26 @@ export const UserProvider = ({ children }: UserProps) => {
   const { authToken } = useAuth();
   const [userToken, setUserToken] = useState(authToken || "");
 
-  useEffect(() => {
-    const decoder = jwtDecode<JwtPayload>(userToken);
-    api
-      .get(`/users/${decoder.sub}`, {
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-        },
-      })
-      .then((response) => setUser(response.data))
-      .catch((err) => console.log(err));
-  }, [authToken]);
-
   const [insertModal, setInsertModal] = useState(false);
   const handleClickInsertModal = () => setInsertModal(true);
   const handleClickCloseInsertModal = () => setInsertModal(false);
 
-  // const editProfile = (data: any) => {
-  //   const decoder = jwtDecode<JwtPayload>(userToken);
-  //   api
-  //     .patch(`/users/${decoder.sub}`, data, {
-  //       headers: {
-  //         Authorization: `Bearer ${userToken}`,
-  //       },
-  //     })
-  //     .then((response) => {
-  //       toast.success("Dados alterados com sucesso");
-  //       setInsertModal(false);
-  //       console.log(response);
-  //     })
-  //     .catch((err) => console.log(err));
-  // };
+  const editProfile = (data: any) => {
+    const decoder = jwtDecode<JwtPayload>(userToken);
+    api
+      .patch(`/users/${decoder.sub}`, data, {
+        headers: {
+          Authorization: `Bearer ${userToken}`,
+        },
+      })
+      .then((response) => {
+        toast.success("Dados alterados com sucesso");
+        setInsertModal(false);
+        console.log(response);
+      })
+      .catch((err) => console.log(err));
+  };
+  useEffect(() => {
     if (userToken) {
       const decoder = jwtDecode<JwtPayload>(userToken);
       api
