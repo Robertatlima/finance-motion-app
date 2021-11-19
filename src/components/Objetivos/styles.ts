@@ -11,6 +11,9 @@ export const ObjetivosContainer = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    grid-gap: 3rem;
+    margin: 2rem 0;
   }
 
   @media (min-width: 768px) {
@@ -18,7 +21,6 @@ export const ObjetivosContainer = styled.div`
       width: 350px;
       flex-direction: row;
       flex-wrap: wrap;
-      justify-content: space-between;
     }
   }
 

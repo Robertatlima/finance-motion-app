@@ -1,12 +1,23 @@
-import styled from "styled-components";
-
+import styled, { keyframes } from "styled-components";
+export const moveToCenter = keyframes`
+0% {
+    opacity: 0;
+    transform: translateY(-20%)
+}
+100% {
+    opacity: 1;
+    transform: translateY(0)
+}
+`
 export const Container = styled.div`
   width: 345px;
   max-width: 100%;
   text-align: center;
   form {
+    padding: 15px 0px;
     margin: 0 10px;
   }
+  
   .modal {
     height: 50px;
     display: flex;
@@ -29,4 +40,5 @@ export const Container = styled.div`
   form button {
     margin-top: 15px;
   }
+  
 `;

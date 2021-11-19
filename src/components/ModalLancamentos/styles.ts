@@ -1,12 +1,15 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const Container = styled.div`
   width: 345px;
   max-width: 100%;
   text-align: center;
   form {
+    padding: 15px 0;
     margin: 0 10px;
   }
+  
+
   .modal {
     height: 50px;
     display: flex;
@@ -29,4 +32,5 @@ export const Container = styled.div`
   form button {
     margin-top: 15px;
   }
+  
 `;

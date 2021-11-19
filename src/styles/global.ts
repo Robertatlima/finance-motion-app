@@ -1,5 +1,14 @@
-import { createGlobalStyle } from "styled-components";
-
+import { createGlobalStyle, keyframes } from "styled-components";
+export const moveToCenter = keyframes`
+0% {
+  opacity: 0;
+  transform: translateY(-20%)
+}
+100% {
+  opacity: 1;
+  transform: translateY(0)
+}
+`
 const GlobalStyle = createGlobalStyle`
 :root{
     --color-primary: #FFB800;
@@ -38,5 +47,8 @@ p{
     margin-top: 0 !important; 
     margin-bottom: 1rem !important;
 }
+.MuiPaper-root{
+    animation: ${moveToCenter} 0.8s ease;
+  }
 `;
 export default GlobalStyle;

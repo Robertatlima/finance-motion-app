@@ -6,15 +6,13 @@ export const Container = styled.div<ContainerProps>`
   color: #101010;
   background-color: #ffffff;
   border-radius: 8px;
-  width: 345px;
-  padding: 20px;
-  margin: 0 auto;
-  margin-bottom: 35px;
+  width: 100%;
+  padding: 20px 10px;
   display: flex;
   align-items: center;
   flex-direction: column;
   @media (min-width: 1100px){
-    width: 300px;
+    width: 30%;
   }
   div:nth-child(1) {
     width: 100%;
