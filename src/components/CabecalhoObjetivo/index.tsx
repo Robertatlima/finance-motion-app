@@ -17,7 +17,9 @@ const CardCabecalhoObjetivo = () => {
         <div>
           <h3>Objetivos</h3>
         </div>
-        <div onClick={handleClickInsertModal}>{element}</div>
+        <div className="icon" onClick={handleClickInsertModal}>
+          {element}
+        </div>
         <Dialog open={insertModal} onClose={handleClickCloseInsertModal}>
           <FormObjetivo
             handleClickCloseInsertModal={handleClickCloseInsertModal}
