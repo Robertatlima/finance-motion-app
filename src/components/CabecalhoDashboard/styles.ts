@@ -5,7 +5,7 @@ export const CabecalhoContainer = styled.div`
   height: 200px;
   background: linear-gradient(45deg, #F9B208, #F0C929, #FFE652);
   background-size:300% 300%;
-  animation: motionColors 20s ease infinite;
+  animation: motionColors 10s ease infinite;
 
   color: white;
   padding: 15px;

@@ -41,7 +41,7 @@ const CardObjetivo = ({ objetivo }: cardObjetivos) => {
         <span className="marcador__map">{element}</span>
 
         <div className="__aviso">
-          <span className="aviso">Quase lá</span>
+          <span className="aviso">Finance Motion, está com você!</span>
         </div>
       </div>
     </Container>

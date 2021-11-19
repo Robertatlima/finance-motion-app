@@ -22,6 +22,9 @@ export const Container = styled.div<ContainerProps>`
       font-size: 18px;
       margin-left: 10px;
     }
+    form{
+      padding: 15px 0;
+    }
     button {
       background-color: var(--color-secondary);
       border: none;
@@ -78,7 +81,7 @@ export const Container = styled.div<ContainerProps>`
         p:first-child {
           color: var(--color-primary-variable-1);
           font-weight: bold;
-        }
+        
       `}
   }
 `;
