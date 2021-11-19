@@ -3,13 +3,15 @@
 ## Qual o problema a ser solucionado?
 
 Desenvolver uma aplicação baseada na necessidade de educação financeira da população brasileira.
-Qual a solução que a aplicação traz?
-Ajudar o usuário a administrar seus gastos, definir objetivos ou metas financeiras e gerenciar seus ganhos.
+
+## Qual a solução que a aplicação traz?
+
+Ajudar o usuário a administrar seus gastos, definir objetivos ou metas financeiras e gerenciar seus ganhos. 
 
 ## Quais as features da aplicação que foram planejadas?
 
-1. Todos os endpoints das seguintes pastas: User...
-2. Features do front: Dashboard, tela de login, tela de cadastro, tela de home...
+1. Usaremos os seguintes Endpoints: users, entradas, saidas, objetivos
+2. Features do front:  Tela inicial home, tela de login, tela de cadastro, dashboard, extrato, objetivos, entradas e saídas.
 
 ## Quais as bibliotecas que serão utilizadas pela equipe?
 
@@ -23,11 +25,14 @@ Hook-form
 Toastify
 React-Icons
 Jwt-decode
-typescript
-Quais ferramentas serão utilizadas?
-Trello
-Figma
+Typescript
 
-## Nível estimado de complexidade (nota de um 1 a 10 na percepção do time);
+## Quais ferramentas serão utilizadas?
+
+Trello 
+Figma
+Whimsical
+
+## Nível estimado de complexidade (nota de um 1 a 10 na percepção do time); 
 
 8/10
