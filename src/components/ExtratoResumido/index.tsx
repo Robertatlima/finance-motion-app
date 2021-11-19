@@ -50,7 +50,7 @@ const ExtratoResumido = ({ setExtrato, lancamentos }: ResumidodoProps) => {
   const saldoGeral = entradas - saidas - objetivos;
 
   useEffect(() => {
-    if (saldoGeral <= 0) {
+    if (saldoGeral < 0) {
       toast.error("Saldo negativo :(");
     }
   }, [saldoGeral]);
